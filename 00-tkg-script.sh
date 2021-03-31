@@ -1,5 +1,5 @@
 #!/bin/bash
-# This script is used to add a proxy to Containerd service
+# This script adds proxy configuration to Containerd service
 # and copies CA certificate of harbor registry
 # in a vSphere with Kubernetes Tanzu Kubernetes 
 # cluster. After adding the proxy, it will restart
