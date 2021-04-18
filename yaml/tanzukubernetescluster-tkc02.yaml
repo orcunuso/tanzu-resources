@@ -1,0 +1,32 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: tkc2104151029
+spec:
+  distribution:
+    version: v1.18.15
+  topology:
+    controlPlane:
+      count: 1
+      class: best-effort-small
+      storageClass: tanzu-storage
+    workers:
+      count: 1
+      class: best-effort-small
+      storageClass: tanzu-storage
+  settings:
+    storage:
+      classes:
+      - tanzu-storage
+      defaultClass: tanzu-storage
+    network:
+      cni:
+        name: antrea
+      services:
+        cidrBlocks: ["10.68.0.0/17"]
+      pods:
+        cidrBlocks: ["10.68.128.0/17"]
+      #proxy:
+      #  httpProxy: http://proxy:port
+      #  httpsProxy: http://proxy:port
+      #  noProxy: 10.0.0.0/8,localhost,127.0.0.1

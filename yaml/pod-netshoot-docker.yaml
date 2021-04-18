@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: netshoot
+  name: netshoot-docker
+spec:
+  containers:
+  - image: docker.io/orcunuso/netshoot:alpine-20210108
+    imagePullPolicy: IfNotPresent
+    name: netshoot
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 500m
+        memory: 640Mi
+    env:
+    - name: POD_TIMEOUT
+      value: "10080"
+  restartPolicy: Never
+  serviceAccountName: default
+  #nodeName: 420176b372657c7fba6fe85e5ff268cf
+

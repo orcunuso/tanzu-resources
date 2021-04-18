@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netshoot
+spec:
+  selector:
+    matchLabels:
+      app: netshoot
+  replicas: 2
+  template: 
+    metadata:
+      labels:
+        app: netshoot
+    spec:
+      containers:
+      - name: netshoot
+        image: docker.io/orcunuso/netshoot:alpine-20210108
+      serviceAccountName: default
